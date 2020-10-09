@@ -1,27 +1,51 @@
 // SearchForm Pulled from Activity 23 Components -> Search Form -> index.js
 import React from "react";
 
-function SearchForm(props) {
+class SearchForm extends React.Component {
+  state={
+    search: ""
+
+  }
+  // Activity 19 SearchResultsContainer.js line 23
+  handleInputChange = event => {
+    event.preventDefault();
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  render(){
+
+
+ 
   return (
-    <form className="search">
+    <>
+    <form>
       <div className="form-group">
         <label htmlFor="search">Search:</label>
         <input
-          value={props.search}
-          onChange={props.handleInputChange}
-          name="name"
-          list="users"
+          onChange={this.handleInputChange}
+          value={this.state.search}
+          name="search"
           type="text"
           className="form-control"
-          placeholder="Search Employee"
+          placeholder="Search For an Employee"
           id="search"
         />
-        <button onClick={props.handleFormSubmit} className="btn btn-primary mt-3">
-          Search
-        </button>
+        <br />
       </div>
     </form>
+        
+    <button onClick={() => this.props.handleFormSubmit(this.state.search)}className="btn btn-primary">
+      Search
+    </button>
+      
+  
+    </>
   );
+  }
 }
 
 export default SearchForm;

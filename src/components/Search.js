@@ -6,7 +6,10 @@ import ColumnHeader from "./ColumnHeader";
 
 class Search extends Component {
   state = {
+    search: "",
     employees: [],
+    filteredEmployees: [],
+    order: ""
   };
 
   // Activity 23
@@ -14,36 +17,44 @@ class Search extends Component {
     API.search()
       .then(res => {
         console.log(res)
+        var employees = res.data.results.map((res) => ({
+          picture: res.picture.medium,
+          firstName: res.name.first,
+          lastName: res.name.last,
+          dob: res.dob.age,
+          email: res.email,
+          phone: res.phone,
+        }))
         this.setState({
-          employees: res.data.results.map((res, key) => ({
-            picture: res.picture.medium,
-            firstName: res.name.first,
-            lastName: res.name.last,
-            dob: res.dob.age,
-            email: res.email,
-            phone: res.phone,
-            key: key
-          }))
-
+          employees, 
+          filteredEmployees: employees
         })
      
       })
       .catch(error => console.log(error));
   }
 
-// Activity 19 SearchResultsContainer.js line 23
-  handleInputChange = event => {
-    const name = event.target.name;
-    const value = event.target.value;
+
+
+  handleFormSubmit = search => {
+    // event.preventDefault();
+    console.log(search)
+    var employees = this.state.employees;
+    var newEmployees = [];
+    for (let i = 0; i < employees.length; i++) {  
+      if(employees[i].firstName == search || employees[i].lastName == search ) {
+          newEmployees.push(employees[i])
+        } 
+      
+    } 
+    console.log(newEmployees)
     this.setState({
-      [name]: value
-    });
+      employees: newEmployees
+    })
+    
   };
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.searchMovies(this.state.search);
-  };
+
 
   render() {
     return (
@@ -51,16 +62,21 @@ class Search extends Component {
       <h1>Employee Directory</h1>
 
       <SearchForm
+            // value={this.state.value}
             handleFormSubmit={this.handleFormSubmit}
-            handleInputChange={this.handleInputChange}
-            value={this.state.search}
+            // handleInputChange={this.handleInputChange}
+            
         />
 
       <div className="row">
       <table className="table">
+      <thead className="thead-dark">
       <ColumnHeader
        />
-      {this.state.employees.map((res) =>
+      </thead>
+
+      <tbody>
+      {this.state.employees.map((res, key) =>
       <Card
         picture={res.picture}
         firstName={res.firstName}
@@ -68,9 +84,10 @@ class Search extends Component {
         dob={res.dob}
         email={res.email}
         phone={res.phone}
-        key={res.key}
+        key={key}
         />
       )}
+      </tbody>
       </table>
       </div>
 
