@@ -1,56 +1,53 @@
-# Unit 19 React Homework: Employee Directory
+# Employee Directory
 
-## Overview
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-For this assignment, you'll create a employee directory with React. This assignment will require you to break up your application's UI into components, manage component state, and respond to user events.
-
-## User Story
-
-* As a user, I want to be able to view my entire employee directory at once so that I have quick access to their information.
-
-## Business Context
-
-An employee or manager would benefit greatly from being able to view non-sensitive data about other employees. It would be particularly helpful to be able to filter employees by name.
-
-## Acceptance Criteria
+## Description
 
 Given a table of random users, when the user loads the page, a table of employees should render. 
 
-The user should be able to:
+## Table of Contents
 
-  * Sort the table by at least one category
+* [Installation](#installation)
 
-  * Filter the users by at least one property.
+* [Usage](#usage)
 
-## Commit Early and Often
+* [License](#license)
 
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
+* [Contributing](#contributing)
 
-1. Your commit history is a signal to employers that you are actively working on projects and learning new skills
+* [Tests](#tests)
 
-2. Your commit history allows you to revert your code base in the event that you need to return to a previous state
+* [Questions](#questions)
 
-Follow these guidelines for committing:
+## Installation
 
-* Make single purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits
+To install necessary dependencies, run the following command:
 
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history
+```
+npx create-react-app &  npm axios
+```
 
-* Don't commit half done work, for the sake of your collaborators (and your future self!)
-
-* Test your application before you commit to ensure functionality at every step in the development process
-
-* We would like you to have well over 200 commits by graduation, so commit early and often!
-
-* Deploy this site to GitHub Pages using the [Create React App docs for deployment.](https://create-react-app.dev/docs/deployment/#github-pages)
+## Usage
 
 
-## Submission on BCS
 
-You are required to submit the following:
+## License
 
-* the URL to the deployed application
+This project is licensed under the MIT license
 
-* the URL to the Github repository
+## Contributing
 
-# Employee-Directory
+Not Accepting
+
+## Tests
+
+To run tests, run the following command:
+
+```
+N/A
+```
+
+## Questions
+
+If you have any question about the repo, open an issue or contact me directly at patrick.j.mulhern1@gmail.com. You can find more of my work at pmulhern(https://github.com/pmulhern/).
